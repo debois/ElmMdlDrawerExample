@@ -4,7 +4,7 @@ import Material.Layout as Layout
 import Html exposing (..)
 import Html.Events as Events
 import Update exposing (Msg(Mdl))
-import Model exposing (Model, model)
+import Model exposing (Model)
 
 
 header : List (Html Msg)
@@ -32,8 +32,8 @@ drawer =
     ]
 
 
-layout : Html Msg
-layout =
+layout : Model -> Html Msg
+layout model =
     Layout.render Mdl
         model.mdl
         [ Layout.fixedHeader
@@ -52,4 +52,4 @@ layout =
 view : Model -> Html Msg
 view model =
     div []
-        [ layout ]
+        [ layout model ]
